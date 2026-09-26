@@ -1,3 +1,4 @@
+package com.example.react_springboot;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;

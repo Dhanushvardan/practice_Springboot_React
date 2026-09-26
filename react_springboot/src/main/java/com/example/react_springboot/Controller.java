@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api")
 public class Controller {
 
@@ -13,14 +14,14 @@ public class Controller {
         this.service = service;
     }
 
-    @PutMapping("/addEntity")
+    @PostMapping("/addEntity")
     public Entity addEntity(@RequestBody Entity entity) {
-        
+
         return service.saveEntity(entity);
     }
 
-    @GetMapping("/getNameById")
-    public String getNameById(@RequestBody Integer id) {
+    @GetMapping("/getNameById/{id}")
+    public String getNameById(@PathVariable Integer id) {
         return service.findNameById(id);
     }
 
